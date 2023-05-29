@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import '../node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
+// import'../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
+// import'../node_modules/bootstrap/dist/js/bootstrap.bundle';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
