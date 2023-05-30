@@ -23,7 +23,7 @@ export default function Home() {
             }
         });
         try{
-        console.log(response.json())
+        console.log(response.text())
        const data = await response.json();
         console.log("type of data is  " + typeof(data))
        
