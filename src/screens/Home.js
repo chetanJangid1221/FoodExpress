@@ -30,7 +30,7 @@ export default function Home() {
 //         console.log(err);
 //         }
     
-               const responseBody = await response.text(); // Read the response body as text
+               const responseBody = await response.json(); // Read the response body as text
 
             try {
               const jsonData = JSON.parse(responseBody); // Try parsing the response body as JSON
