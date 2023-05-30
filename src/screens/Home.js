@@ -11,29 +11,38 @@ export default function Home() {
 
 
     const loadData = async () => {
-         const response = await fetch('https://foodexp.onrender.com/foodData', {
-//         const response = await fetch('http://localhost:5000/foodData', {
-            
+        const response = await fetch('https://foodexp.onrender.com/foodData', {
+            //         const response = await fetch('http://localhost:5000/foodData', {
+
             method: "POST",
-             mode:"no-cors",
+            mode: "no-cors",
             headers: {
                 "Content-Type": 'application/json',
                 "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials" : true
+                "Access-Control-Allow-Credentials": true
             }
         });
-        try{
-        console.log(response.text())
-       const data = await response.json();
-        console.log("type of data is  " + typeof(data))
-       
-        setfoodItem(data[0]);
-        setfoodCat(data[1]);
+        try {
+            //     console.log(response.text())
+            //    const data = await response.json();
+            //     console.log("type of data is  " + typeof(data))
+
+            //     setfoodItem(data[0]);
+            //     setfoodCat(data[1]);
+            console.log(response);
+            const responseBody = await response.text();
+            console.log("log responseBody from response"+responseBody);
+            const data = JSON.parse(responseBody);
+            console.log("log data from response"+data);
+            console.log("type of data is " + typeof data);
+
+            setfoodItem(data[0]);
+            setfoodCat(data[1]);
         }
-        catch(err){
-        console.log(err);
+        catch (err) {
+            console.log(err);
         }
-    
+
 
     }
 
@@ -44,33 +53,33 @@ export default function Home() {
         <div>
             <div><NavBar /></div>
             <div>
-            <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div className="carousel-inner" id='carousel'>
-                    <div class="carousel-caption d-none d-md-block" style={{ zIndex: 3 }}>
-                        <div class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  value={search} onChange={(e)=>{setsearch(e.target.value)}}/>
-                            {/* <button class="btn btn-outline-success bg-success text-white" type="submit">Search</button> */}
+                <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div className="carousel-inner" id='carousel'>
+                        <div class="carousel-caption d-none d-md-block" style={{ zIndex: 3 }}>
+                            <div class="d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) => { setsearch(e.target.value) }} />
+                                {/* <button class="btn btn-outline-success bg-success text-white" type="submit">Search</button> */}
+                            </div>
+                        </div>
+                        <div className="carousel-item active">
+                            <img src="https://source.unsplash.com/random/900x700/?fruit" className="d-block w-100" id='carousalImg' alt="..." />
+                        </div>
+                        <div className="carousel-item">
+                            <img src="https://source.unsplash.com/random/900x700/?dish" className="d-block w-100" id='carousalImg' alt="..." />
+                        </div>
+                        <div className="carousel-item">
+                            <img src="https://source.unsplash.com/random/900x700/?juice" className="d-block w-10  0" id='carousalImg' alt="..." />
                         </div>
                     </div>
-                    <div className="carousel-item active">
-                        <img src="https://source.unsplash.com/random/900x700/?fruit" className="d-block w-100" id='carousalImg' alt="..." />
-                    </div>
-                    <div className="carousel-item">
-                        <img src="https://source.unsplash.com/random/900x700/?dish" className="d-block w-100" id='carousalImg' alt="..." />
-                    </div>
-                    <div className="carousel-item">
-                        <img src="https://source.unsplash.com/random/900x700/?juice" className="d-block w-10  0" id='carousalImg' alt="..." />
-                    </div>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
-            </div>
             </div>
             <div className='container ' >
                 {
@@ -85,10 +94,10 @@ export default function Home() {
 
                                     {
                                         foodItem !== [] ?
-                                            foodItem.filter((item) => (item.CategoryName === value.CategoryName) &&(item.name.toLowerCase().includes(search.toLocaleString()) ))
+                                            foodItem.filter((item) => (item.CategoryName === value.CategoryName) && (item.name.toLowerCase().includes(search.toLocaleString())))
                                                 .map(filterItems => {
                                                     return (
-                                                        <div className="col-sm-12 col-md-6 col-lg-3 mb-3"  key={filterItems._id}>
+                                                        <div className="col-sm-12 col-md-6 col-lg-3 mb-3" key={filterItems._id}>
                                                             <Card
                                                                 //this code is use for prop 
                                                                 // foodImage={filterItems.img}
@@ -98,8 +107,8 @@ export default function Home() {
                                                                 // ------below is update code using context---------
                                                                 foodItem={filterItems}
                                                                 foodOptions={filterItems.options[0]}
-                                                                
-                                                                >
+
+                                                            >
 
                                                             </Card>
 
