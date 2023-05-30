@@ -23,21 +23,13 @@ export default function Home() {
             }
         });
         try {
-            //     console.log(response.text())
-            //    const data = await response.json();
-            //     console.log("type of data is  " + typeof(data))
+                console.log(response.text())
+               const data = await response.json();
+                console.log("type of data is  " + typeof(data))
 
-            //     setfoodItem(data[0]);
-            //     setfoodCat(data[1]);
-            console.log(response);
-            const responseBody = await response.text();
-            console.log("log responseBody from response"+responseBody);
-            const data = JSON.parse(responseBody);
-            console.log("log data from response"+data);
-            console.log("type of data is " + typeof data);
-
-            setfoodItem(data[0]);
-            setfoodCat(data[1]);
+                setfoodItem(data[0]);
+                setfoodCat(data[1]);
+          
         }
         catch (err) {
             console.log(err);
