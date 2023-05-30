@@ -18,11 +18,11 @@ export default function Home() {
                 "Content-Type": 'application/json'
             }
         });
-       const data = await response.json();
-        console.log("type of data is" + typeof(data))
-        console.log(data)
-        setfoodItem(data[0]);
-        setfoodCat(data[1]);
+//        const data = await response.json();
+//         console.log("type of data is" + typeof(data))
+//         console.log(data)
+//         setfoodItem(data[0]);
+//         setfoodCat(data[1]);
 
     }
     useEffect(() => { loadData() }, []);
