@@ -30,7 +30,7 @@ export default function Home() {
 //         console.log(err);
 //         }
         const [foodItemData, foodCatData] = await response.json();
-
+          console.log("reponse se neeche ah gya")
         if (foodItemData && foodCatData) {
           // Both objects exist and contain data
           console.log("data is there in response")
