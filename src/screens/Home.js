@@ -23,9 +23,10 @@ export default function Home() {
             }
         });
         try{
+        console.log(response)
        const data = await response.json();
         console.log("type of data is  " + typeof(data))
-        console.log(data)
+       
         setfoodItem(data[0]);
         setfoodCat(data[1]);
         }
