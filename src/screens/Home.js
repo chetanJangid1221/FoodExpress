@@ -42,7 +42,7 @@ export default function Home() {
     //use AXIOS to fetch data
     const loadData = async () => {
         try {
-          const response = await axios.post('http://localhost:5000/foodData', {
+          const response = await axios.post('https://foodexp.onrender.com/foodData', {
             headers: {
                 mode: "no-cors",
               'Content-Type': 'application/json'
