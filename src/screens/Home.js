@@ -49,6 +49,7 @@ export default function Home() {
               // Error occurred while parsing response as JSON or response is empty
               console.error("Error parsing response:", error);
             }
+    }
 
     useEffect(() => { loadData() }, []);
 
