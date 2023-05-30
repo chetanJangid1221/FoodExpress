@@ -19,15 +19,27 @@ export default function Home() {
                 "Content-Type": 'application/json'
             }
         });
-        try{
-       const data = await response.json();
-        console.log("type of data is" + typeof(data))
-        console.log(data)
-        setfoodItem(data[0]);
-        setfoodCat(data[1]);
-        }
-        catch(err){
-        console.log(err);
+//         try{
+//        const data = await response.json();
+//         console.log("type of data is" + typeof(data))
+//         console.log(data)
+//         setfoodItem(data[0]);
+//         setfoodCat(data[1]);
+//         }
+//         catch(err){
+//         console.log(err);
+//         }
+        const [foodItemData, foodCatData] = await response.json();
+
+        if (foodItemData && foodCatData) {
+          // Both objects exist and contain data
+          console.log("data is there in response")
+            setfoodItem(foodItemData);
+          setfoodCat(foodCatData);
+        } else {
+          // One or both objects are missing or empty
+          // Handle the error or empty state accordingly
+            console.log("no data is there in response")
         }
     }
     useEffect(() => { loadData() }, []);
