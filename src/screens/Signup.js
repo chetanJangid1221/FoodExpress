@@ -7,7 +7,7 @@ export default function Signup() {
     const [Credential, setCredential] = useState({ name: "", email: "", password: "", geoloaction: "" })
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/CreateUser", {
+        const response = await fetch("https://foodexp.onrender.com/CreateUser", {
             method: "POST",
             headers: {
                 "Content-Type": 'application/json'
