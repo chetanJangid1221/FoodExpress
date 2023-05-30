@@ -13,7 +13,7 @@ export default function Home() {
     const loadData = async () => {
          const response = await fetch('https://foodexp.onrender.com/foodData', {
 //         const response = await fetch('http://localhost:5000/foodData', {
-            mode: 'no-cors',
+            
             method: "POST",
             headers: {
                 "Content-Type": 'application/json',
