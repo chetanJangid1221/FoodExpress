@@ -11,59 +11,59 @@ export default function Home() {
     const [search, setsearch] = useState([]);
 
 
-    const loadData = async () => {
-        const response = await fetch('https://foodexp.onrender.com/foodData', {
-            //         const response = await fetch('http://localhost:5000/foodData', {
-
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-                "Content-Type": 'application/json',
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Credentials": true
-            }
-        });
-        try {
-                console.log(response.text())
-               const data = await response.json();
-                console.log("type of data is  " + typeof(data))
-
-                setfoodItem(data[0]);
-                setfoodCat(data[1]);
-          
-        }
-        catch (err) {
-            console.log(err);
-        }
-
-
-    }
-
-    //use AXIOS to fetch data
     // const loadData = async () => {
-    //     try {
-    //       const response = await axios.post('https://foodexp.onrender.com/foodData', {
+    //     const response = await fetch('https://foodexp.onrender.com/foodData', {
+    //         //         const response = await fetch('http://localhost:5000/foodData', {
+
+    //         method: "POST",
     //         mode: "no-cors",
     //         headers: {
-    //           'Content-Type': 'application/json',
-    //           "Access-Control-Allow-Origin": "*",
-    //           "Access-Control-Allow-Credentials": true
+    //             "Content-Type": 'application/json',
+    //             "Access-Control-Allow-Origin": "*",
+    //             "Access-Control-Allow-Credentials": true
     //         }
-    //       });
-      
-    //       const { data } = response;
-    //       const [foodItemData, foodCatData] = data;
-    //       console.log(response);
-    //       setfoodItem(foodItemData);
-    //       setfoodCat(foodCatData);
-      
-    //       console.log('type of data is' + typeof data);
-    //       // console.log(data[0], data[1]);
-    //     } catch (error) {
-    //       // Handle error
-    //       console.error(error);
+    //     });
+    //     try {
+    //             console.log(response.text())
+    //            const data = await response.json();
+    //             console.log("type of data is  " + typeof(data))
+
+    //             setfoodItem(data[0]);
+    //             setfoodCat(data[1]);
+          
     //     }
-    //   };
+    //     catch (err) {
+    //         console.log(err);
+    //     }
+
+
+    // }
+
+    //use AXIOS to fetch data
+    const loadData = async () => {
+        try {
+          const response = await axios.post('https://foodexp.onrender.com/foodData', {
+            mode: "no-cors",
+            headers: {
+              'Content-Type': 'application/json',
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Credentials": true
+            }
+          });
+      
+          const { data } = response;
+          const [foodItemData, foodCatData] = data;
+          console.log(response);
+          setfoodItem(foodItemData);
+          setfoodCat(foodCatData);
+      
+          console.log('type of data is' + typeof data);
+          // console.log(data[0], data[1]);
+        } catch (error) {
+          // Handle error
+          console.error(error);
+        }
+      };
 
     useEffect(() => { loadData() }, []);
 
