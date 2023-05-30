@@ -11,7 +11,7 @@ export default function Home() {
 
 
     const loadData = async () => {
-        let response = await fetch("/foodData", {
+        let response = await fetch("https://foodexp.onrender.com/foodData", {
             method: "POST",
             headers: {
                 "Content-Type": 'application/json'
