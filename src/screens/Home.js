@@ -43,9 +43,10 @@ export default function Home() {
     const loadData = async () => {
         try {
           const response = await axios.post('https://foodexp.onrender.com/foodData', {
+            method: "POST",
             mode: "no-cors",
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": 'application/json',
               "Access-Control-Allow-Origin": "*",
               "Access-Control-Allow-Credentials": true
             }
