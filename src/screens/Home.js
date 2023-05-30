@@ -23,9 +23,15 @@ export default function Home() {
 //         console.log(data)
 //         setfoodItem(data[0]);
 //         setfoodCat(data[1]);
-        const [foodItemData, foodCatData] = await response.json();
-        setfoodItem(foodItemData);
-        setfoodCat(foodCatData);
+        
+//         const [foodItemData, foodCatData] = await response.json();
+//         setfoodItem(foodItemData);
+//         setfoodCat(foodCatData);
+        const data = await response.text();
+
+        const parsedData = JSON.parse(data);
+        setfoodItem(parsedData[0]);
+        setfoodCat(parsedData[1]);
        
         // console.log(response[0], response[1]);
     }
