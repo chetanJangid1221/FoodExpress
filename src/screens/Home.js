@@ -44,6 +44,7 @@ export default function Home() {
         try {
           const response = await axios.post('http://localhost:5000/foodData', {
             headers: {
+                mode: "no-cors",
               'Content-Type': 'application/json'
             }
           });
