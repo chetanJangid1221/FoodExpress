@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
@@ -10,33 +11,56 @@ export default function Home() {
     const [search, setsearch] = useState([]);
 
 
-    const loadData = async () => {
-        const response = await fetch('https://foodexp.onrender.com/foodData', {
-            //         const response = await fetch('http://localhost:5000/foodData', {
+    // const loadData = async () => {
+    //     const response = await fetch('https://foodexp.onrender.com/foodData', {
+    //         //         const response = await fetch('http://localhost:5000/foodData', {
 
-            method: "POST",
-            // mode: "no-cors",
-            headers: {
-                "Content-Type": 'application/json',
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Credentials": true
-            }
-        });
-        try {
-                console.log(response.text())
-               const data = await response.json();
-                console.log("type of data is  " + typeof(data))
+    //         method: "POST",
+    //         // mode: "no-cors",
+    //         headers: {
+    //             "Content-Type": 'application/json',
+    //             "Access-Control-Allow-Origin": "*",
+    //             "Access-Control-Allow-Credentials": true
+    //         }
+    //     });
+    //     try {
+    //             console.log(response.text())
+    //            const data = await response.json();
+    //             console.log("type of data is  " + typeof(data))
 
-                setfoodItem(data[0]);
-                setfoodCat(data[1]);
+    //             setfoodItem(data[0]);
+    //             setfoodCat(data[1]);
           
-        }
-        catch (err) {
-            console.log(err);
-        }
+    //     }
+    //     catch (err) {
+    //         console.log(err);
+    //     }
 
 
-    }
+    // }
+
+    //use AXIOS to fetch data
+    const loadData = async () => {
+        try {
+          const response = await axios.post('http://localhost:5000/foodData', {
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+      
+          const { data } = response;
+          const [foodItemData, foodCatData] = data;
+          console.log(response);
+          setfoodItem(foodItemData);
+          setfoodCat(foodCatData);
+      
+          console.log('type of data is' + typeof data);
+          // console.log(data[0], data[1]);
+        } catch (error) {
+          // Handle error
+          console.error(error);
+        }
+      };
 
     useEffect(() => { loadData() }, []);
 
