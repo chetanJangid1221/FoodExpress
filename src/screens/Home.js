@@ -29,19 +29,27 @@ export default function Home() {
 //         catch(err){
 //         console.log(err);
 //         }
-        const [foodItemData, foodCatData] = await response.json();
-          console.log("reponse se neeche ah gya")
-        if (foodItemData && foodCatData) {
-          // Both objects exist and contain data
-          console.log("data is there in response")
-            setfoodItem(foodItemData);
-          setfoodCat(foodCatData);
-        } else {
-          // One or both objects are missing or empty
-          // Handle the error or empty state accordingly
-            console.log("no data is there in response")
-        }
-    }
+    
+               const responseBody = await response.text(); // Read the response body as text
+
+            try {
+              const jsonData = JSON.parse(responseBody); // Try parsing the response body as JSON
+              const [foodItemData, foodCatData] = jsonData;
+
+              if (foodItemData && foodCatData) {
+                // Both objects exist and contain data
+                console.log("Data is there in response");
+                setfoodItem(foodItemData);
+                setfoodCat(foodCatData);
+              } else {
+                // One or both objects are missing or empty
+                console.log("No data is there in response");
+              }
+            } catch (error) {
+              // Error occurred while parsing response as JSON or response is empty
+              console.error("Error parsing response:", error);
+            }
+
     useEffect(() => { loadData() }, []);
 
 
