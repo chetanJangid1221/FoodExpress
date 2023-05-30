@@ -16,7 +16,7 @@ export default function Home() {
             //         const response = await fetch('http://localhost:5000/foodData', {
 
             method: "POST",
-            // mode: "no-cors",
+            mode: "no-cors",
             headers: {
                 "Content-Type": 'application/json',
                 "Access-Control-Allow-Origin": "*",
