@@ -15,42 +15,25 @@ export default function Home() {
 //         const response = await fetch('http://localhost:5000/foodData', {
             
             method: "POST",
+             mode:"no-cors",
             headers: {
                 "Content-Type": 'application/json',
                 "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Credentials" : true
             }
         });
-//         try{
-//        const data = await response.json();
-//         console.log("type of data is" + typeof(data))
-//         console.log(data)
-//         setfoodItem(data[0]);
-//         setfoodCat(data[1]);
-//         }
-//         catch(err){
-//         console.log(err);
-//         }
+        try{
+       const data = await response.json();
+        console.log("type of data is  " + typeof(data))
+        console.log(data)
+        setfoodItem(data[0]);
+        setfoodCat(data[1]);
+        }
+        catch(err){
+        console.log(err);
+        }
     
-               const responseBody = await response.json(); // Read the response body as text
 
-            try {
-              const jsonData = JSON.parse(responseBody); // Try parsing the response body as JSON
-              const [foodItemData, foodCatData] = jsonData;
-
-              if (foodItemData && foodCatData) {
-                // Both objects exist and contain data
-                console.log("Data is there in response");
-                setfoodItem(foodItemData);
-                setfoodCat(foodCatData);
-              } else {
-                // One or both objects are missing or empty
-                console.log("No data is there in response");
-              }
-            } catch (error) {
-              // Error occurred while parsing response as JSON or response is empty
-              console.error("Error parsing response:", error);
-            }
     }
 
     useEffect(() => { loadData() }, []);
