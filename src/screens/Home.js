@@ -11,16 +11,16 @@ export default function Home() {
 
 
     const loadData = async () => {
-        let response = await fetch("https://foodexp.onrender.com/foodData", {
+        const response = await fetch("https://foodexp.onrender.com/foodData", {
             mode: 'no-cors',
             method: "POST",
             headers: {
                 "Content-Type": 'application/json'
             }
         });
-        response = await response.json();
-        setfoodItem(response[0]);
-        setfoodCat(response[1]);
+       const data = await response.json();
+        setfoodItem(data[0]);
+        setfoodCat(data[1]);
         // console.log(response[0], response[1]);
     }
     useEffect(() => { loadData() }, []);
