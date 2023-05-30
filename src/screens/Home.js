@@ -18,11 +18,14 @@ export default function Home() {
                 "Content-Type": 'application/json'
             }
         });
-       let data = await response.json()
-        console.log("type of data is" + typeof(data))
-        console.log(data)
-        setfoodItem(data[0]);
-        setfoodCat(data[1]);
+//        let data = await response.json()
+//         console.log("type of data is" + typeof(data))
+//         console.log(data)
+//         setfoodItem(data[0]);
+//         setfoodCat(data[1]);
+        const [foodItemData, foodCatData] = await response.json();
+        setfoodItem(foodItemData);
+        setfoodCat(foodCatData);
        
         // console.log(response[0], response[1]);
     }
