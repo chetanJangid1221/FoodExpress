@@ -2,16 +2,22 @@ const express = require('express')
 const app = express()
 const port = 5000
 const mongoDB = require('./db')
-app.use((req,res,next)=>{
-    // res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
-    res.setHeader("Access-Control-Allow-Origin","https://foodexpress-jrwp.onrender.com/");
+// app.use((req,res,next)=>{
+//     res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
+//     res.header(
+//         "Access-Control-Allow-Headers",
+//         "Origin, X-Requested-Width, Content-Type, Accept"
+//         );
+//         next();
+//     });
 
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-Width, Content-Type, Accept"
-        );
-        next();
-    })
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://foodexpress-jrwp.onrender.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
     mongoDB();
 
 app.use(express.json())
