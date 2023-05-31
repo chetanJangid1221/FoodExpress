@@ -73,9 +73,24 @@ export default function Home() {
         <div>
             <div><NavBar /></div>
             <div>
-                <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
+                {/* <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel"> */}
                     <div className="carousel-inner" id='carousel'>
                         <div class="carousel-caption d-none d-md-block" style={{ zIndex: 3 }}>
+                            
+                        <div className="d-flex mb-5 fs-1 fst-italic text-white d-flex justify-content-center">
+                                <Typewriter
+                                    onInit={(typewriter) => {
+                                        typewriter
+
+                                            .typeString("Savor the Flavors, Delivered to Your Doorstep!")
+                                            // .deleteAll()
+                                            // .typeString("")
+                                            .start();
+
+                                    }}
+                                />
+                               
+                            </div>
                             <div class="d-flex">
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) => { setsearch(e.target.value) }} />
                                 {/* <button class="btn btn-outline-success bg-success text-white" type="submit">Search</button> */}
@@ -88,7 +103,7 @@ export default function Home() {
                             <img src="https://source.unsplash.com/random/900x700/?dish" className="d-block w-100" id='carousalImg' alt="..." />
                         </div>
                         <div className="carousel-item">
-                            <img src="https://source.unsplash.com/random/900x700/?juice" className="d-block w-10  0" id='carousalImg' alt="..." />
+                            <img src="https://source.unsplash.com/random/900x700/?juice" className="d-block w-100" id='carousalImg' alt="..." />
                         </div>
                     </div>
                     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -99,7 +114,7 @@ export default function Home() {
                         <span className="carousel-control-next-icon" aria-hidden="true"></span>
                         <span className="visually-hidden">Next</span>
                     </button>
-                </div>
+                {/* </div> */}
             </div>
             <div className='container ' >
                 {
