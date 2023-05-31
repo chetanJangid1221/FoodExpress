@@ -12,7 +12,7 @@ const mongoDB = require('./db')
 //     });
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://foodexpress-jrwp.onrender.com',"https://food-express-phi.vercel.app/");
+    res.setHeader('Access-Control-Allow-Origin', 'https://foodexpress-jrwp.onrender.com',"https://food-express-phi.vercel.app");
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
