@@ -6,7 +6,9 @@ export default function Login() {
     const [Credential, setCredential] = useState({ email: "", password: "" })
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/LoginUser", {
+        // const response = await fetch("http://localhost:5000/LoginUser", {
+        const response = await fetch("https://foodexp.onrender.com/LoginUser", {
+
             method: "POST",
             headers: {
                 "Content-Type": 'application/json'
