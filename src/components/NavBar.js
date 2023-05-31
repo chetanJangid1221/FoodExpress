@@ -16,37 +16,37 @@ export default function NavBar() {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-success">
                 <div className="container-fluid">
-                    <Link className="navbar-brand fs-1 fst-italic" to="/">FoodExpress </Link>
+                    <Link className="navbar-brand fs-1 fst-italic text-white" to="/">FoodExpress </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav ">
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                                <Link className="nav-link active text-white" aria-current="page" to="/">Home</Link>
                             </li>
                             {(localStorage.getItem("authToken")) ?
                                 <li className="nav-item">
-                                    <Link className="nav-link active" aria-current="page" to="/myOrder">My Orders</Link>
+                                    <Link className="nav-link active text-white" aria-current="page" to="/myOrder">My Orders</Link>
                                 </li>
                                 : ""}
                             {(!localStorage.getItem("authToken")) ?
                                 <>
                                     <li className="nav-item">
-                                        <Link className="nav-link " to="login">Login</Link>
+                                        <Link className="nav-link text-white " to="login">Login</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="CreateUser">Sign Up</Link>
+                                        <Link className="nav-link text-white" to="CreateUser">Sign Up</Link>
                                     </li>
                                 </>
                                 :
                                 <>
                                     <li className="nav-item">
-                                        <Link className="nav-link" onClick={() => { setCartView(true) }}>My Cart<span class="badge badge-pill text-danger">{data.length}</span></Link>
+                                        <Link className="nav-link text-white" onClick={() => { setCartView(true) }}>My Cart<span class="badge badge-pill text-danger">{data.length}</span></Link>
                                     </li>
                                     {cartView ? <Modal onClose={() => setCartView(false)}><Cart></Cart></Modal> : null}
                                     <li className="nav-item">
-                                        <Link className="nav-link " onClick={handleLogout}>Log Out</Link>
+                                        <Link className="nav-link text-white" onClick={handleLogout}>Log Out</Link>
                                     </li>
                                 </>
                             }
