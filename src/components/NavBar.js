@@ -31,16 +31,16 @@ export default function NavBar() {
                                 </li>
                                 : ""}
                             {(!localStorage.getItem("authToken")) ?
-                                <div className='d-flex'>
+                                <>
                                     <li className="nav-item">
                                         <Link className="nav-link " to="login">Login</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" to="CreateUser">Sign Up</Link>
                                     </li>
-                                </div>
+                                </>
                                 :
-                                <div className='d-flex'>
+                                <>
                                     <li className="nav-item">
                                         <Link className="nav-link" onClick={() => { setCartView(true) }}>My Cart<span class="badge badge-pill text-danger">{data.length}</span></Link>
                                     </li>
@@ -48,7 +48,7 @@ export default function NavBar() {
                                     <li className="nav-item">
                                         <Link className="nav-link " onClick={handleLogout}>Log Out</Link>
                                     </li>
-                                </div>
+                                </>
                             }
                         </ul>
                     </div>
