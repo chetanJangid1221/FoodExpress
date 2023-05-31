@@ -65,7 +65,7 @@ export default function Cart() {
 
       {console.log(data)}
       <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md' >
-        <table className='table table-hover '>
+        <table className='table'>
           <thead className=' text-success fs-4'>
             <tr>
               <th scope='col' >#</th>
@@ -84,7 +84,7 @@ export default function Cart() {
                 <td>{food.Quantity}</td>
                 <td>{food.Size}</td>
                 <td>{food.price}</td>
-                <td ><button type="button" className="btn p-0" onClick={() => { dispatch({ type: "REMOVE", index: index }) }} >Remove</button> 
+                <td ><button type="button" className="btn p-0 text-white" onClick={() => { dispatch({ type: "REMOVE", index: index }) }} >Remove</button> 
                 </td>
                 </tr>
             ))}
