@@ -55,14 +55,14 @@ export default function Card(props) {
                     
                     // }}
                     >
-                        <select className='m-2 h-100 bg-success rounded' onChange={(e) => setQuantity(e.target.value)}>
+                        <select className='m-2 h-100 bg-success rounded text-white' onChange={(e) => setQuantity(e.target.value)}>
                             {Array.from(Array(6), (a, i) => {
                                 return (
                                     <option key={i + 1} value={i + 1}>{i + 1}</option>
                                 )
                             })}
                         </select>
-                        <select className='m-2 h-100 bg-success rounded' ref={priceRef} onChange={(e) => setSize(e.target.value)}>
+                        <select className='m-2 h-100 bg-success rounded text-white' ref={priceRef} onChange={(e) => setSize(e.target.value)}>
                             {Options.map((data) => {
                                 return <option key={data} value={data}>{data}</option>
                             })}
@@ -72,7 +72,7 @@ export default function Card(props) {
                         </div>
                         <hr></hr>
                         <div className='d-grid'>
-                            <button className='btn btn-success ' onClick={addToCart}>Add to Cart</button>
+                            <button className='btn btn-success text-white' onClick={addToCart}>Add to Cart</button>
                         </div>
                     </div>
                 </div>
