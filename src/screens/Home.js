@@ -73,7 +73,7 @@ export default function Home() {
         <div>
             <div><NavBar /></div>
             <div>
-                {/* <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel"> */}
+                <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div className="carousel-inner" id='carousel'>
                         <div class="carousel-caption d-none d-md-block" style={{ zIndex: 3 }}>
                             <div class="d-flex">
@@ -99,7 +99,7 @@ export default function Home() {
                         <span className="carousel-control-next-icon" aria-hidden="true"></span>
                         <span className="visually-hidden">Next</span>
                     </button>
-                {/* </div> */}
+                </div>
             </div>
             <div className='container ' >
                 {
