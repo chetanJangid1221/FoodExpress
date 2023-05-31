@@ -44,11 +44,11 @@ export default function Home() {
         try {
           const response = await axios.post('https://foodexp.onrender.com/foodData', {
             method: "POST",
-            mode: "no-cors",
+            // mode: "no-cors",
             headers: {
-              "Content-Type": 'application/json',
-              "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Credentials": true
+              "Content-Type": 'application/json'
+            //   "Access-Control-Allow-Origin": "*",
+            //   "Access-Control-Allow-Credentials": true
             }
           });
       
